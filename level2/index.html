@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Small-multiple charts of daily maximum and minimum temperatures by month and year."
+    />
+    <title>Daily Temperature Rhythms</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Level 2 · Latest 10 years</p>
+          <h1>Daily temperature rhythms</h1>
+          <p class="subtitle">
+            Each month is a miniature timeline of daily highs and lows.
+          </p>
+        </div>
+
+        <div class="controls-stack">
+          <div class="metric-control">
+            <span class="control-label">Cell color</span>
+            <div class="metric-switch" role="group" aria-label="Monthly heat metric">
+              <button class="metric-button is-active" type="button" data-heat-metric="max" aria-pressed="true">Maximum</button>
+              <button class="metric-button" type="button" data-heat-metric="min" aria-pressed="false">Minimum</button>
+            </div>
+          </div>
+          <div class="legend" aria-label="Daily line series legend">
+            <button class="legend-item" type="button" data-series="max" aria-pressed="true">
+              <span class="legend-line legend-line-max" aria-hidden="true"></span>
+              Daily maximum
+            </button>
+            <button class="legend-item" type="button" data-series="min" aria-pressed="true">
+              <span class="legend-line legend-line-min" aria-hidden="true"></span>
+              Daily minimum
+            </button>
+            <span class="scale-note" id="scale-note">Shared y-scale</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="chart-section" aria-labelledby="chart-title">
+        <h2 id="chart-title" class="visually-hidden">Daily temperature charts by month and year</h2>
+
+        <div class="chart-intro">
+          <p class="axis-note">
+            <strong>Inside each cell</strong>
+            <span>Temperature (°C) ↑</span>
+            <span>Day of month →</span>
+          </p>
+          <p class="active-reading" id="active-reading" aria-live="polite">
+            Hover or focus a month to inspect its daily values.
+          </p>
+        </div>
+
+        <div class="heat-legend" aria-label="Monthly temperature color legend">
+          <span class="heat-legend-label" id="heat-legend-label">Monthly maximum temperature</span>
+          <div class="heat-legend-scale" id="heat-legend-scale" aria-hidden="true"></div>
+          <div class="heat-legend-ticks" id="heat-legend-ticks" aria-hidden="true"></div>
+          <span class="heat-legend-unit">°C</span>
+        </div>
+
+        <div class="matrix-scroll">
+          <div class="matrix" id="matrix" aria-label="Temperature small-multiple matrix"></div>
+        </div>
+
+        <p class="data-note" id="data-note"></p>
+      </section>
+    </main>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

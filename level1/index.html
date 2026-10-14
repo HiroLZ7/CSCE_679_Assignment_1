@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive heatmap of monthly maximum and minimum temperatures from 1997 to 2017."
+    />
+    <title>Temperature Extremes by Month</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">1997–2017 · Daily observations</p>
+          <h1>Temperature extremes by month</h1>
+          <p class="subtitle" id="subtitle">
+            The highest daily temperature recorded in each month.
+          </p>
+        </div>
+
+        <div class="metric-switch" role="group" aria-label="Temperature metric">
+          <button class="metric-button is-active" type="button" data-metric="max" aria-pressed="true">
+            Maximum
+          </button>
+          <button class="metric-button" type="button" data-metric="min" aria-pressed="false">
+            Minimum
+          </button>
+        </div>
+      </header>
+
+      <section class="chart-section" aria-labelledby="chart-title">
+        <h2 id="chart-title" class="visually-hidden">Monthly temperature heatmap</h2>
+
+        <div class="selection" id="selection" aria-live="polite">
+          <span class="selection-label">Explore the grid</span>
+          <strong>Hover, focus, or select a month to see its temperature and source date.</strong>
+        </div>
+
+        <div class="heatmap-scroll" id="heatmap-scroll">
+          <svg
+            id="heatmap"
+            role="img"
+            aria-labelledby="heatmap-title heatmap-desc"
+          >
+            <title id="heatmap-title">Monthly temperature heatmap</title>
+            <desc id="heatmap-desc">
+              Years run from left to right and months from top to bottom. Cell color encodes temperature.
+            </desc>
+          </svg>
+        </div>
+
+        <div class="legend-block" aria-label="Temperature color legend">
+          <div class="legend-heading">
+            <span id="legend-label">Monthly maximum temperature</span>
+            <span class="legend-unit">°C</span>
+          </div>
+          <div class="legend-scale" id="legend-scale" aria-hidden="true"></div>
+          <div class="legend-ticks" id="legend-ticks" aria-hidden="true"></div>
+        </div>
+
+        <p class="data-note" id="data-note"></p>
+      </section>
+    </main>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

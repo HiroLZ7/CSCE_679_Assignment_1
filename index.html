@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Choose between monthly and daily temperature visualizations."
+    />
+    <title>Temperature Visualization</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="home-shell">
+      <header class="home-header">
+        <p class="eyebrow">Temperature data · 1997–2017</p>
+        <h1>Explore temperature at two levels</h1>
+        <p class="intro">
+          Start with monthly extremes, then move into the daily patterns behind them.
+        </p>
+      </header>
+
+      <section class="level-grid" aria-label="Visualization levels">
+        <a class="level-card" href="level1/">
+          <span class="level-number">Level 1</span>
+          <h2>Monthly overview</h2>
+          <p>Compare the highest and lowest temperature recorded in every month and year.</p>
+          <span class="level-action">Open monthly heatmap <span aria-hidden="true">→</span></span>
+          <span class="heat-preview" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </span>
+        </a>
+
+        <a class="level-card level-card-featured" href="level2/">
+          <span class="level-number">Level 2 · Enhanced</span>
+          <h2>Daily detail</h2>
+          <p>Keep the monthly heat encoding while revealing daily maximum and minimum changes.</p>
+          <span class="level-action">Open daily small multiples <span aria-hidden="true">→</span></span>
+          <svg class="line-preview" viewBox="0 0 240 54" aria-hidden="true">
+            <path class="preview-max" d="M2 23 L22 18 L42 27 L62 12 L82 17 L102 9 L122 22 L142 15 L162 19 L182 10 L202 14 L238 8" />
+            <path class="preview-min" d="M2 38 L22 32 L42 40 L62 29 L82 34 L102 25 L122 37 L142 30 L162 34 L182 27 L202 31 L238 24" />
+          </svg>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
